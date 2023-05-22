@@ -47,7 +47,7 @@ install.packages("viridis")
 The app can be called directly via 
 
 ```
-shiny::runGitHub(repo = "niclanota/rainfall-detection-shinyapp")
+shiny::runGitHub(repo = "niclanota/rainfall-detection-shiny")
 ```
 or downloaded and run in RStudio as a Shiny application.
    

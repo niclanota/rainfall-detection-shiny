@@ -1,0 +1,295 @@
+        <!DOCTYPE html>
+        <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+        <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+        <!--[if (gte IE 9)|!(IE)]><!-->
+        <html class="js" lang="en">
+        <!--<![endif]-->
+
+        <head>
+
+            <!--- basic page needs
+            ================================================== -->
+            <meta charset="utf-8">
+            <title>Rain Detecor Demo</title>
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            <!-- mobile specific metas
+            ================================================== -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <!-- CSS
+            ================================================== -->
+            <link rel="stylesheet" href="css/base.css">
+            <link rel="stylesheet" href="css/vendor.css">
+            <link rel="stylesheet" href="css/main.css">
+
+            <style type="text/css" media="screen">
+                .s-styles { 
+                    background: white;
+                    padding-top: 15rem;
+                    padding-bottom: 12rem;
+                }
+            </style> 
+
+            <!-- script
+            ================================================== -->
+            <script src="js/modernizr.js"></script>
+            <script src="js/pace.min.js"></script>
+
+            <!-- favicons
+            ================================================== -->
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+            <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+            <!-- shiny stuff
+                ================================================== -->
+            {{ headContent() }}
+            
+
+        </head>
+
+        <body id="top">
+
+            <!-- header
+            ================================================== -->
+            <header class="s-header">
+                <div class="header-logo">
+                    <a class="site-logo" href="index.html">
+                        <img src="images/logo.png" alt="Homepage">
+                    </a>
+                </div>
+
+                <nav class="header-nav">
+
+                    <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+
+                    <div class="header-nav__content">
+                        <h3>Navigation</h3>
+                        
+                        <ul class="header-nav__list">
+                            <li class="current"><a class="smoothscroll"  href="index.html" title="home">Home</a></li>
+                            <li><a href="#services" title="services">Classify</a></li>
+                            <li><a href="#gradcam" title="gradcam">GradCAM</a></li>
+                            <li><a href="#about" title="about">About</a></li>
+                        </ul>
+            
+                        <p>This app demonstrates the use of a not-device-specific, smart, vision-based rain sensors system.</p>
+                        <p><sub> THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</sub></p>
+
+                    </div> <!-- end header-nav__content -->
+
+                </nav>  <!-- end header-nav -->
+
+                <a class="header-menu-toggle" href="#0">
+                    <span class="header-menu-text">Menu</span>
+                    <span class="header-menu-icon"></span>
+                </a>
+
+            </header> <!-- end s-header -->
+
+
+            <!-- home
+            ================================================== -->
+            <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/background.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+            <!-- <div class="overlay"></div> --> 
+            <!-- <div class="shadow-overlay"></div> --> 
+            
+                <div class="home-content">
+
+                    <div class="row home-content__main">
+
+                        <h3>Is it raining or not?</h3>
+
+                        <h1>
+                            Upload any picture and then  <br> 
+                            the AI-based model will predict  <br>  
+                            whether it shows rainfall or not. <br>
+                        </h1>
+
+                        <div class="home-content__buttons">
+                            <a href="#services" class="smoothscroll btn btn--stroke">
+                                Try the demo!
+                            </a>
+                            <a href="#about" class="smoothscroll btn btn--stroke">
+                                References
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="home-content__scroll">
+                        <a href="#services" class="scroll-link smoothscroll">
+                            <span>Scroll Down</span>
+                        </a>
+                    </div>
+
+                    <div class="home-content__line"></div>
+
+                </div> <!-- end home-content -->
+
+            </section> <!-- end s-home -->
+
+        <!-- services
+            ================================================== -->
+            <section id='services' class="s-services">
+            <div class="row services-list block-1-2 block-tab-full">
+                <div class="col-block service-item" data-aos="fade-up">
+                    <div class="service-icon"><i class="icon-camera"></i></div>
+                    <div class="service-text">
+                                    <h3 class="h2">Picture</h3>
+                                        {{ image_selector }}
+            </div>			
+                </div>
+
+                <div class="col-block service-item" data-aos="fade-up">
+                    <div class="service-icon"><i class="icon-drop"></i></div>
+                    <div class="service-text">
+                                    <h3 class="h2">Prediction</h3>
+                                    <p> {{ predicted }}</p>	
+            </div>
+                    <div class="service-text">{{ pic_out }}</div>
+            </div>
+            <div>	
+                <br>
+                <p> Scroll down to check which are the image region where the network is looking at when it makes the prediction.</p>	
+                    <div class="home-content__scroll">
+                        <a href="#gradcam" class="scroll-link smoothscroll" style="color: #111111;">
+                            <span>Scroll Down</span>
+                        </a>
+                    </div>
+                    <div class="home-content__line"></div>
+                </div>
+            
+            </div>
+
+            </section> <!-- end s-services -->
+
+            <!-- gradcam
+            ================================================== -->
+        <section id="gradcam" class="s-contact">
+
+                <div class="overlay"></div>
+
+                <div class="row section-header aos-init aos-animate" data-aos="fade-up">
+                    <div class="col-full">
+                        <h3 class="subhead">GradCAM</h3>
+                        <h1 class="display-2 display-2--light">A visual explanation of the CNN classification</h1>
+                        <p>The Gradient-weighted Class Activation Mapping (Grad-CAM) highlights the specific discriminative regions within the input image that are relevant for the classifier predictions.</p>
+                    </div>
+                </div>
+
+                <div class="row contact-content aos-init aos-animate" data-aos="fade-up">
+                                    {{ gradcam_map }}
+                </div> <!-- end contact-content -->
+                
+                                <div class="home-content__scroll">
+                        <a href="#about" class="scroll-link smoothscroll">
+                            <span>Scroll Down</span>
+                        </a>
+                        </div>
+
+        </section> <!-- end s-gradcam -->
+
+
+
+            <!-- about
+            ================================================== -->
+            <section id='about' class="s-about">
+
+                <div class="row section-header has-bottom-sep" data-aos="fade-up">
+                    <div class="col-full">
+                        <h3 class="subhead subhead--dark">Methodology</h3>
+                        <h1 class="display-1 display-1--light">References</h1>
+                    </div>
+                </div> <!-- end section-header -->
+
+                <div class="row about-desc" data-aos="fade-up">
+                    <div class="col-full">
+                        <p>
+                        This app demonstrates the use of a not device specific, smart, vision-based rain sensors system. It offers a basic yet useful tool for researchers and citizens to quickly monitor the onset and end of rain-related events, exploiting pre-existing devices with a parsimonious use of economic and computational resources.
+                                <br>
+                        </p>
+                        <p>
+                            Details about methodology and training dataset can be found in <br>
+                            <br>
+                            <a class="btn btn--default full-width" href="https://doi.org/10.3390/w13050588" target="_blank"> https://doi.org/10.3390/w13050588 </a>
+                            </p>
+
+                    </div>
+                </div> <!-- end about-desc -->
+
+
+                <div class="about__line"></div>
+
+            </section> <!-- end s-about -->
+
+
+
+
+            <!-- footer
+            ================================================== -->
+            <footer>
+
+                <div class="row footer-main">
+                    <div class="col-six tab-full left footer-desc">
+                <div class="footer-logo"></div>
+
+                <div> </div>
+                    </div>              
+                    <div class="col-six tab-full right footer-funding">
+                <h4>Funding</h4>
+                        This research was supported by the “Casa delle Tecnologie Emergenti di Matera” project.
+                        
+                    </div>
+                     <div class="col-six tab-full right footer-funding">
+                                                               <div><img src="images/Unibas.png" style="height:100px;"> <img src="images/CTEMT_LogoLight.svg" style="height:80px;"></div>
+                    </div>
+                       
+                    
+                </div> <!-- end footer-main -->
+
+        <div class="row footer-bottom">
+
+                    <div class="col-twelve">
+                        <div class="copyright">
+                            <span>Developed by <a href="https://www.linkedin.com/in/niclanotarangelo/">Nicla M. Notarangelo</a>. Template modified from the Glint Template by <a href="https://www.colorlib.com/">Colorlib</a>.
+                            
+                           </span>	
+                        </div>
+
+                        <div class="go-top">
+                            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                </div> <!-- end footer-bottom -->
+
+
+            </footer> <!-- end footer -->
+
+
+            <!-- preloader
+            ================================================== -->
+            <div id="preloader">
+                <div id="loader">
+                    <div class="line-scale-pulse-out">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Java Script
+            ================================================== -->
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/plugins.js"></script>
+            <script src="js/main.js"></script>
+
+        </body>
+
+        </html>

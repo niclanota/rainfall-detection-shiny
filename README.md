@@ -29,18 +29,17 @@ If you use the code, please cite our paper:
 ```
 
 ## Installation
-The app requires the following packages:
+The app requires the installation of the following packages:
 
 ```
 install.packages("shiny")
 install.packages("shinymaterial")
 install.packages("shinycssloaders")
 install.packages("magick")
-install.packages("tensorflow")
-install.packages("keras")
 install.packages("viridis")
-
 ```
+
+The app requires also TesorFlow and Keras packages, for installation please refer to the official documentation: https://tensorflow.rstudio.com/install/.
 
 ## Usage
 
